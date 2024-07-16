@@ -1,0 +1,31 @@
+.messageContainer {
+	border: 0.17vw double #ef6865;
+	color: black;
+	font-size: 1vw;
+	font-weight: 700;
+	padding: 1%;
+	margin-bottom: 1%;
+	margin-top: 1%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.messageContainerSuccess {
+	border: 0.17vw double #96aca8;
+}
+
+.iconError {
+	color: #ef6865;
+	font-size: 1.3vw;
+}
+
+.iconSuccess {
+	color: #96aca8;
+	font-size: 1.3vw;
+}
+
+.text {
+	border-right: 0.5vw solid transparent;
+	border-left: 0.5vw solid transparent;
+}

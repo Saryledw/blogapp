@@ -1,0 +1,247 @@
+.postContainer{
+	/*height: 25vh;*/
+	/*height: 12.4vw;*/
+	/*height: 25.4vw;*/
+	/*height: 100%;*/
+	height: auto;
+	/*margin-left: 5%;
+	margin-right: 5%;*/
+	margin-bottom: 5%;
+	background-color: white;
+	/*border: 0.1vw black solid;*/
+}
+
+.postHeader {
+	width: 100%;
+	height: 100%;
+	/*background-color: #c0ddd8;
+	clip-path: polygon(0 0, 25% 0, 28% 30%, 100% 30%, 100% 100%, 0 100%);*/
+	/*margin-bottom: -0.5vw;*/
+}
+
+.postHeaderContainer {
+	width: 100%;
+	/*height: 40%;*/
+	height: 5vw;
+	/*height: 5.1%;*/
+	/*background-color: #c0ddd8;
+	clip-path: polygon(0 0, 25% 0, 28% 30%, 100% 30%, 100% 100%, 0 100%);*/
+}
+
+.postContent {
+	/*border-bottom: 0.16vw #929292 solid;*/
+	border-right: 0.17vw #96aca8 solid;
+	border-left: 0.17vw #96aca8 solid;
+	height: 12vw;
+	margin-left: 0.05vw;
+	margin-right: 0.05vw;
+	display: grid;
+	grid-template-columns: auto auto;
+}
+
+.postContentImage{
+	width: 15.8vw;
+	height: 10vw;
+	border: 0.1vw black solid;
+	justify-self: left;
+	align-self: center;
+	margin-left: 0.5vw;
+}
+
+.postContentText {
+	justify-self: center;
+	align-self: center;
+	border: 0.1vw black solid;
+	font-size: 1.3vw;
+	font-weight: 500;
+	margin-left: 0.5vw;
+	margin-right: 0.5vw;
+	height: 10vw;
+}
+
+.postHeaderAbsolute {
+	position: absolute;
+	width: 62.8%;
+	height: 5vw;
+	display: grid;
+	grid-template-columns: 25% 1fr auto auto auto;
+	column-gap: 0vw;
+	/*border: 1px black solid;*/
+}
+
+.minusButton, .plusButton {
+	/*position: absolute;*/
+	border-top: 0.1vw black solid;
+	border-left: 0.1vw black solid;
+	border-bottom: 0.1vw black solid;
+	background-color: #ef6865;
+	color: #ebd2ab;
+	box-shadow: 0.15vw 0.15vw 0vw 0.0vw rgba(0, 0, 0, 1);
+	/*margin-top: 1.82%;*/
+	font-size: 2vw;
+	padding-right: 0.5%;
+	padding-left: 0.5%;
+	/*margin-right: 0.5vw;*/
+	justify-self: end;
+	width: 2.5vw;
+	height: 2.5vw;
+	align-self: center;
+	margin-top: 1vw;
+	/*transition: all 0.2s;*/
+}
+
+.minusButton:active, .plusButton:active {
+  /*background-color: #d9534f; */
+  /*color: #ffffff; */
+ /* box-shadow: 0 0 0 0 rgba(0, 0, 0, 1); */
+  /*transform: translateY(0.15vw); */
+	border-left: 0.5vw #a04745 solid;
+	border-top: 0.5vw #a04745 solid;
+	border-right: 0vw #a04745 solid;
+	border-bottom: 0vw #a04745 solid;
+	box-shadow: 0.0vw 0.0vw 0vw 0.05vw rgba(0, 0, 0, 1);
+	margin-top: 1.15vw;
+	height: 2.55vw;
+	/*outline: 1px solid black;*/
+}
+
+.plusButton {
+	margin-right: 0.7vw;
+	border-right: 0.1vw black solid;
+}
+
+
+.postLikesCount {
+	align-self: center;
+	/*border: solid 1px black;*/
+	margin-top: 1vw;
+	height: 2.5vw;
+	/*justify-self: center;*/
+	/*margin-right: 0.3vw;*/
+	font-size: 1.5vw;
+	font-weight: 600;
+	border-top: 0.1vw black solid;
+	border-bottom: 0.1vw black solid;
+	border-left: 0.1vw black solid;
+	background-color: #ef6865;
+	color: #ebd2ab;
+	box-shadow: 0.15vw 0.15vw 0vw 0.0vw rgba(0, 0, 0, 1), 0vw 0.15vw 0vw 0.0vw rgba(0, 0, 0, 1);
+	/*text-shadow: 0.13vw 0.1vw 0vw black;*/
+	padding: 0.3vw;
+	/*margin-left: 0.04vw;*/
+}
+
+.postHeaderTitle {
+	/*position: absolute;*/
+	font-size: 1.28vw;
+	font-weight: 700;
+	/*border: solid black 0.1vw;*/
+	height: 5vw;
+	/*width:16%;*/
+	/*height: 4.8vw;*/
+	color: #ebd2ab;
+	/*color: #ebd2ab;*/
+	display: flex;
+  /*align-items: center;*/
+	flex-direction: column;
+  justify-content: center;
+  /*text-align: center; */
+	white-space: normal; 
+	overflow: hidden;
+	text-overflow: clip;
+	padding-left: 0.5vw;
+	padding-bottom: 0.45vw;
+	line-height: 1.15;
+	/*text-shadow: 0.13vw 0.1vw 0vw #ebd2ab,  0.15vw 0.15vw 0vw rgba(0, 0, 0, 1);*/
+	/*text-shadow: 0.1vw 0.1vw 0vw #a84946;*/
+	/*text-shadow: 
+	-1px -1px 0 #a84946,  
+	 1px -1px 0 #a84946,
+	-1px  1px 0 #a84946,
+	 1px  1px 0 #a84946, 
+	
+	-2px -2px 0 #a84946,
+	 2px -2px 0 #a84946,
+	-2px  2px 0 #a84946,
+	 2px  2px 0 #a84946;*/
+	text-shadow:
+	0.05vw 0.05vw 0 black,
+	0.05vw -0.05vw 0 black,
+	-0.05vw 0.05vw 0 black,
+	-0.05vw -0.05vw 0 black,
+	0.05vw 0vw 0 black,
+	0vw 0.05vw 0 black,
+	-0.05vw 0vw 0 black,
+	0vw -0.05vw 0 black,
+	0.2vw 0.2vw 0vw #ef6865,
+	0.25vw 0.25vw 0 black, 
+    0.25vw 0.15vw 0 black, 
+    0.15vw 0.25vw 0 black, 
+    0.15vw 0.15vw 0 black, 
+    0.2vw 0.25vw 0 black, 
+    0.25vw 0.2vw 0 black, 
+    0.2vw 0.15vw 0 black, 
+    0.15vw 0.2vw 0 black;
+}
+
+.postFooter {
+	background-color: #c0ddd8;
+	/*height: 3.2vw;*/
+	border: 0.16vw #96aca8 solid ;
+	margin-left: 0.05vw;
+	margin-right: 0.05vw;
+	display: grid;
+	grid-template-columns: max-content max-content 1fr;
+	column-gap: 0vw;
+	/*padding-bottom: 0.1vw;*/
+	padding-top: 0.5vw;
+	padding-bottom: 0.5vw;
+}
+
+.postFooterUserProfilePicture {
+	/*position: absolute;*/
+	/*margin-left: 50%;*/
+	/*margin-top: 1.755%;*/
+	/*margin-right: 0.5vw;*/
+	justify-self: left;
+	align-self: center;
+	/*margin-top: 1.1vw;*/
+	margin-left: 0.4vw;
+	/*box-shadow: 0.15vw 0.2vw 0vw 0.0vw rgba(0, 0, 0, 1);*/
+	border-left: 0.1vw black solid;
+	border-top: 0.1vw black solid;
+	border-bottom: 0.1vw black solid;
+	height: 2.2vw;
+	width: 2.2vw;
+	position: relative;
+}
+
+.postFooterUserName {
+	/*margin-right: 0.5vw;*/
+	justify-self: left;
+	align-self: center;
+	/*margin-top: 1.1vw;*/
+	color: #ebd2ab;
+	/*margin-left: 0.5vw;*/
+	background-color: #ef6865;
+	padding: 0.35vw;
+	/*box-shadow: 0.15vw 0.15vw 0vw 0.0vw rgba(0, 0, 0, 1);*/
+	font-size: 1.1vw;
+	font-weight: 600;
+	border: 0.1vw black solid;
+	height: 2.2vw;
+}
+
+.postFooterTime {
+	justify-self: end;
+	align-self: center;
+	color: #ebd2ab;
+	margin-right: 0.55vw;
+	background-color: #ef6865;
+	padding: 0.35vw;
+	/*box-shadow: 0.15vw 0.15vw 0vw 0.0vw rgba(0, 0, 0, 1);*/
+	font-size: 1.1vw;
+	font-weight: 600;
+	border: 0.1vw black solid;
+	height: 2.2vw;
+}

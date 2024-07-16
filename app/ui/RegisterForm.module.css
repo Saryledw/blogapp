@@ -1,0 +1,193 @@
+.registrationFormContainer {
+	background-color: white;
+	position: fixed;
+	/*position: absolute;*/
+	width: 100%;
+	height: 100%;
+	overflow-y: hidden;
+	overflow-x: hidden;
+	z-index: 102;
+	color: black;
+	font-size: 1.2vw;
+	font-weight: 600;
+	/*display: block;*/
+	/*display: none;*/
+	transform: translateY(-105%);
+  transition: transform 0.5s ease;
+}
+
+.registrationFormContainerVisible {
+	/*display:block;*/
+	transform: translateY(0);
+}
+
+.registrationFormHeader {
+	background-color: #c0ddd8;
+	border: 0.17vw solid #96aca8;
+	color: #ef6865;
+	font-size: 2vw;
+	font-weight: 600;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-content: center;
+	padding-left: 0.3vw;
+	padding-right: 0.3vw;
+	padding-top: 0.2vw;
+	padding-bottom: 0.3vw;
+
+	/*color: #ebd2ab;
+	text-shadow:
+	0.05vw 0.05vw 0 black,
+	0.05vw -0.05vw 0 black,
+	-0.05vw 0.05vw 0 black,
+	-0.05vw -0.05vw 0 black,
+	0.05vw 0vw 0 black,
+	0vw 0.05vw 0 black,
+	-0.05vw 0vw 0 black,
+	0vw -0.05vw 0 black,
+	0.2vw 0.2vw 0vw #ef6865,
+	0.25vw 0.25vw 0 black, 
+    0.25vw 0.15vw 0 black, 
+    0.15vw 0.25vw 0 black, 
+    0.15vw 0.15vw 0 black, 
+    0.2vw 0.25vw 0 black, 
+    0.25vw 0.2vw 0 black, 
+    0.2vw 0.15vw 0 black, 
+    0.15vw 0.2vw 0 black;*/
+}
+
+.registrationFormCloseButton, .registrationFormCreateButton {
+	border: 0.1vw black solid;
+	background-color: #ef6865;
+	color: #ebd2ab;
+	box-shadow: 0.15vw 0.15vw 0vw 0.0vw rgba(0, 0, 0, 1);
+	justify-self: end;
+	padding-left: 0.6vw;
+	padding-right: 0.6vw;
+	font-weight: 900;
+	font-size: 1.5vw;
+}
+
+.registrationFormCreateButton {
+	width: 10%;
+	/*margin-left: 45%;*/
+	margin-top: 5%;
+	font-size: 1.5vw;
+	align-self: center;
+	justify-self: center;
+	height: 2.5vw;
+}
+
+.registrationForm {
+	display: grid;
+	grid-template-columns: 1fr;
+	justify-content: center;
+	/*margin-top: 7.5%;*/
+	/*border: 1px black solid;*/
+	margin-top: 3%;
+}
+
+.inputRegistration {
+	width: 50%;
+	justify-self: center;
+	/*margin-left: 25%;*/
+	/*margin-right: 10%;*/
+	/*margin-top: 5%;*/
+	font-size: 1.5vw;
+	color: #ef6865;
+	box-shadow: 0.25vw 0.25vw 0vw 0.0vw rgba(0, 0, 0, 1);
+}
+
+.inputRegistrationTitle {
+	margin-top: 2.7%;
+	/*justify-self: center;*/
+	margin-left: 25%;
+}
+
+.inputRegistration::placeholder {
+	color:rgba(239, 104, 101, 0.6);
+}
+
+.errorMessage {
+	font-weight: 700;
+	font-size: 1.6vw;
+	margin-left: 25%;
+	margin-right: 25%;
+	color: #ef6865;
+	position: absolute;
+	margin-top: -2%;
+}
+
+.registrationFormNone {
+	display: none;
+}
+
+.successRegistrationButton {
+	border: 0.1vw black solid;
+	background-color: #ef6865;
+	color: #ebd2ab;
+	box-shadow: 0.15vw 0.15vw 0vw 0.0vw rgba(0, 0, 0, 1);
+	padding-left: 0.8vw;
+	padding-right: 0.8vw;
+	padding-top: 0.6vw;
+	padding-bottom: 0.6vw;
+	font-weight: 900;
+	font-size: 1.8vw;
+	margin-top: 5%;
+}
+
+.successRegistration {
+	font-weight: 800;
+	font-size: 2.2vw;
+	/*margin-left: 30%;
+	margin-top: 20%;*/
+	color: #ef6865;
+
+	/*display: grid;
+	grid-template-columns: 1fr;
+	justify-content: center;
+	align-content: center;*/
+	display: flex;
+  justify-content: center;
+  align-items: center;
+	height: 100vh;
+	flex-direction: column;
+}
+
+.loadingSpinnerContainer {
+	border: 0.1vw black solid;
+	background-color: #ef6865;
+	color: #ebd2ab;
+	box-shadow: 0.15vw 0.15vw 0vw 0.0vw rgba(0, 0, 0, 1);
+	padding-left: 0.6vw;
+	padding-right: 0.6vw;
+	font-weight: 900;
+
+	width: 10%;
+	margin-top: 5%;
+	font-size: 1.5vw;
+	align-self: center;
+	justify-self: center;
+	height: 2.5vw;
+	display: flex;
+	justify-content: center; 
+  align-items: center;
+}
+
+.loadingSpinner {
+	border: 0.4vw solid #ebd2ab; /* Light grey border */
+  border-top-color: #ef6865; /* Red color for the top border */
+  border-radius: 50%; /* Circular border */
+  width: 2vw; /* Size of the spinner */
+  height: 2vw; /* Size of the spinner */
+  animation: spin 1.2s linear infinite; /* Animation applied */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); /* Start rotation from 0 degrees */
+  }
+  100% {
+    transform: rotate(360deg); /* End rotation at 360 degrees */
+  }
+}

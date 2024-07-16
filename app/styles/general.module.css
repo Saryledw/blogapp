@@ -1,0 +1,53 @@
+.button {
+	border: 0.1vw black solid;
+	font-size: 1.7vw;
+	padding: 0.5% 1% 0.5% 1%;
+	background-color: #ef6865;
+	color: #ebd2ab;
+	box-shadow: 0.25vw 0.25vw 0vw 0.0vw rgba(0, 0, 0, 1);
+	align-self: center;
+	justify-self: end;
+	margin-right: 10%;
+	margin-bottom: 0.3%;
+	/*height: 2.7vw;*/
+	display: block;
+}
+
+.windowHeader {
+	/*height: 15%;*/
+	background-color: #c0ddd8;
+	border-bottom: 0.17vw solid #96aca8;
+	color: #ef6865;
+	font-size: 1vw;
+	font-weight: 600;
+	display: grid;
+	grid-template-columns: 70% 1fr;
+	align-content: center;
+	padding-left: 0.3vw;
+	padding-right: 0.3vw;
+	padding-top: 0.3vw;
+	padding-bottom: 0.3vw;
+	margin-bottom: 5%;
+}
+
+.windowBorder {
+	/*position: fixed;*/
+	/*margin-left: 80%;*/
+	/*top: 3.85vw;*/
+	/*margin-top: 3.85vw;*/
+	/*right: 0;*/
+	/*width: 18vw;*/
+	/*height: 14.2vw;*/
+	background-color: white;
+	border: 0.17vw solid #96aca8;
+	/*z-index: 101;*/
+	/*transition: height 0.5s ease;*/
+	font-size: 1vw;
+	font-weight: 500;
+	/*padding-bottom: 1.2vw;*/
+	padding-bottom: 0.5%;
+	/*display: none;*/
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}

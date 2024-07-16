@@ -1,0 +1,34 @@
+.wrapper {
+	padding-top: 0.1vw;
+	margin-top: 0vw;
+}
+
+.wrapperContainer {
+	/*background-color: #c0ddd8;*/
+	background-color: white;
+	margin-left: 15%;
+	margin-right: 15%;
+	margin-top: 10%;
+	/*padding-top: 1vw;*/
+	height: 100vw;
+	/*border-left: 1vw solid white;
+	border-right: 1vw solid white;
+	box-shadow: 0vw 0vw 1vw 0.1vw rgba(0, 0, 0, 0.2);*/
+	border: 0.17vw solid #96aca8;
+}
+
+.wrapperContainerHeader {
+	background-color: #c0ddd8;
+	border-bottom: 0.17vw solid #96aca8;
+	color: #ef6865;
+	font-size: 1.5vw;
+	font-weight: 600;
+	display: grid;
+	grid-template-columns: 70% 1fr;
+	align-content: center;
+	padding-left: 0.3vw;
+	padding-right: 0.3vw;
+	padding-top: 0.3vw;
+	padding-bottom: 0.3vw;
+	margin-bottom: 5%;
+}

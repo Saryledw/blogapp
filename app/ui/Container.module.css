@@ -1,0 +1,64 @@
+
+.container {
+	/*position: fixed;*/
+	/*margin-left: 80%;*/
+	/*top: 3.85vw;*/
+	/*margin-top: 3.85vw;*/
+	/*right: 0;*/
+	/*width: 18vw;*/
+	/*height: 14.2vw;*/
+	/*z-index: 101;*/
+	/*transition: height 0.5s ease;*/
+	/*display: none;*/
+	/*transform: translateX(105%);
+  transition: transform 0.3s ease;*/
+	font-size: 1vw;
+	font-weight: 500;
+	background-color: white;
+	border: 0.17vw solid #96aca8;
+	width: 90%;
+	max-width: 40vw;
+	
+}
+
+.header {
+	/*height: 15%;*/
+	background-color: #c0ddd8;
+	border-bottom: 0.17vw solid #96aca8;
+	color: #ef6865;
+	font-size: 1.2vw;
+	font-weight: 600;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding-left: 0.6%;
+	padding-right: 0.6%;
+	padding-top: 0.6%;
+	padding-bottom: 0.8%;
+	align-items: center;
+}
+
+.headerText {
+	padding-top: 0.3vw;
+	padding-bottom: 0.3vw;
+}
+
+.closeButton {
+	justify-self: end;
+}
+
+.yes {
+	padding-left: 1%;
+	padding-right: 1%;
+	padding-bottom: 1%;
+	padding-top: 1%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.no {
+	padding-left: 1%;
+	padding-right: 1%;
+	padding-bottom: 1%;
+	padding-top: 1%;
+}

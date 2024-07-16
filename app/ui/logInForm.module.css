@@ -1,0 +1,110 @@
+
+.logInFormContainer {
+	position: fixed;
+	/*margin-left: 80%;*/
+	top: 3.85vw;
+	/*margin-top: 3.85vw;*/
+	right: 0;
+	width: 18vw;
+	/*height: 14.2vw;*/
+	background-color: white;
+	border: 0.17vw solid #96aca8;
+	z-index: 101;
+	/*transition: height 0.5s ease;*/
+	font-size: 1vw;
+	font-weight: 500;
+	padding-bottom: 1.2vw;
+	/*display: none;*/
+	transform: translateX(105%);
+  transition: transform 0.3s ease;
+}
+
+.logInFormContainerVisible {
+	/*display: block;*/
+	transform: translateX(0);
+}
+
+.logInFormHeader {
+	/*height: 15%;*/
+	background-color: #c0ddd8;
+	border-bottom: 0.17vw solid #96aca8;
+	color: #ef6865;
+	font-size: 1.2vw;
+	font-weight: 600;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-content: center;
+	padding-left: 0.3vw;
+	padding-right: 0.3vw;
+	padding-top: 0.2vw;
+	padding-bottom: 0.3vw;
+}
+
+.logInFormCloseButton, .logInFormCreateButton, .logInButton {
+	border: 0.1vw black solid;
+	background-color: #ef6865;
+	color: #ebd2ab;
+	box-shadow: 0.15vw 0.15vw 0vw 0.0vw rgba(0, 0, 0, 1);
+	justify-self: end;
+	padding-left: 0.3vw;
+	padding-right: 0.3vw;
+	font-weight: 900;
+	font-size: 1vw;
+}
+
+.logInFormCreateButton {
+	justify-self: center;
+	margin-top: 5%;
+	height: 2vw;
+	width: 6.5vw;
+}
+
+.logInButton {
+	justify-self: center;
+	margin-top: 8%;
+	margin-bottom: 8%;
+	/*font-size: 1.2vw;*/
+	/*padding-top: 0.3vw;
+	padding-bottom: 0.3vw;*/
+	height: 2vw;
+	width: 6vw;
+}
+
+.inputLogInContainer {
+	display: grid;
+	justify-content: center;
+	border-bottom: 0.17vw solid #96aca8;
+}
+
+.inputLogIn {
+	width: 80%;
+	margin-left: 10%;
+	/*margin-right: 15%;*/
+	margin-top: 5%;
+	font-size: 1.5vw;
+	color: #ef6865;
+	box-shadow: 0.25vw 0.25vw 0vw 0.0vw rgba(0, 0, 0, 1);
+}
+
+.inputLogIn::placeholder {
+	color:rgba(239, 104, 101, 0.6);
+}
+
+.logInFormCreate {
+	display: grid;
+	justify-content: center;
+	margin-top: 7.5%;
+}
+
+
+.errorMessage
+{
+	font-weight: 700;
+	font-size: 1vw;
+	margin-left: 10%;
+	margin-right: 10%;
+	color: #ef6865;
+	/*position: absolute;*/
+	margin-top: 5%;
+	/*border: 0.1vw black solid ;*/
+}
