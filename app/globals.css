@@ -138,6 +138,57 @@ h1 {
 	scrollbar-color: #888 #f1f1f1;
 }*/
 
+/* Style the scrollbar track */
+/*::-webkit-scrollbar {
+  width: 0.8vw;
+}*/
+
+/* Style the scrollbar thumb */
+/*::-webkit-scrollbar-thumb {
+  background-color: #96aca8;
+}*/
+
+/* Style the scrollbar track piece */
+/*::-webkit-scrollbar-track {
+  background: #ebd2ab;
+}*/
+
+/* Style the scrollbar buttons */
+/*::-webkit-scrollbar-button:increment,
+::-webkit-scrollbar-button:decrement {
+  background: #c0ddd8; 
+}*/
+
+/* Style the scrollbar button arrows */
+/*::-webkit-scrollbar-button:increment:single-button,
+::-webkit-scrollbar-button:decrement:single-button {
+  background-color: #A3CB76;
+  height: 12px;
+  width: 12px;
+}*/
+
+
+
+/* Optional: Change the color of the scrollbar button arrows */
+/*::-webkit-scrollbar-button:increment:single-button:after,
+::-webkit-scrollbar-button:decrement:single-button:after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}*/
+
+/*::-webkit-scrollbar-button:increment:single-button:after {
+  border-width: 0 1vw 1vw 1vw;
+  border-color: transparent transparent #96aca8 transparent;
+}
+*/
+/*::-webkit-scrollbar-button:decrement:single-button:after {
+  border-width: 1vw 1vw 0 1vw;
+  border-color: #96aca8 transparent transparent transparent;
+}*/
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

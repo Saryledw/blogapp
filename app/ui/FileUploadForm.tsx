@@ -6,14 +6,16 @@ import Button from "./Button";
 import AlertMessage from "./AlertMessage";
 import Container from "./Container";
 import FileUploadIcon from '@mui/icons-material/FileUpload';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 interface FileUploadFormProps {
   allowedExtensions: string;
   maxFiles: number;
   filesName: string;
+	uploadButton: boolean;
 }
 
-const FileUploadForm: React.FC<FileUploadFormProps> = ({ allowedExtensions, maxFiles, filesName }) => {
+const FileUploadForm: React.FC<FileUploadFormProps> = ({ allowedExtensions, maxFiles, filesName, uploadButton }) => {
   const [files, setFiles] = useState<File[]>([]);
   const [previews, setPreviews] = useState<string[]>([]);
   const [errorMessage, setErrorMessage] = useState<string>('');
@@ -203,7 +205,7 @@ const FileUploadForm: React.FC<FileUploadFormProps> = ({ allowedExtensions, maxF
               <li key={index} className={styles.fileListItem}>
                 <p className={styles.fileListItemName}>{file.name}</p>
                 <img src={previews[index]} alt="File preview" className={styles.filePreview} />
-                <Button label='Remove' type="button" onClick={() => handleRemoveFile(index)} size="small"/>
+								<DeleteForeverIcon onClick={() => handleRemoveFile(index)} style={{ color: '#ef6865', fontSize: '2vw', cursor: 'pointer' }} />
               </li>
             ))}
           </ul>
@@ -211,7 +213,9 @@ const FileUploadForm: React.FC<FileUploadFormProps> = ({ allowedExtensions, maxF
 				
       )}</div>
       {(errorMessage || successMessage) && <AlertMessage message={errorMessage || successMessage} success={successMessage} />}
-			{files.length > 0 && <Button label='Upload' type='submit' className={styles.uploadButton} size='large'/>}
+			{files.length > 0 && uploadButton && (
+          <Button label='Upload' type='submit' className={styles.uploadButton} size='large' />
+        )}
     </form>
 		</Container>
   );

@@ -93,6 +93,10 @@
 	align-self: center;
 }
 
+/*.uploadButtonHidden {
+	display: none;
+}*/
+
 /*.removeButton,
 .removeAllButton,
 .submitButton {
@@ -126,7 +130,7 @@
 	margin-left: 2%;
 	width: 46%;
 	height: 20.25vw;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 
