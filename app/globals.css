@@ -113,6 +113,31 @@ h1 {
 	font-weight: 600;
 }
 
+/* For WebKit-based browsers (Chrome, Safari) */
+/*::-webkit-scrollbar {
+	width: 0.5vw;
+}
+
+::-webkit-scrollbar-track {
+	background: #ebd2ab;
+	border-radius: 0vw;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #96866d;
+	border-radius: 0vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}*/
+
+/* For Firefox */
+/* {
+	scrollbar-width: thin;
+	scrollbar-color: #888 #f1f1f1;
+}*/
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

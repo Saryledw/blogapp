@@ -32,9 +32,36 @@
   background-color: #0056b3;
 }*/
 
-.errorMessage {
+/*.errorMessage {
   color: red;
   margin-bottom: 20px;
+}*/
+
+
+
+
+/*.filePreview {
+  width: 5vw;
+  height: auto;
+  display: block;
+  margin-top: 2%;
+}*/
+
+.fileCount {
+  display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 1.1vw;
+	font-weight: 600;
+	padding-bottom: 5%;
+	margin-bottom: 2%;
+	border-bottom: 0.17vw solid #96aca8;
+}
+
+.selectedFilesTitle {
+	font-size: 1.1vw;
+	font-weight: 600;
+	margin-bottom: 5%;
 }
 
 .fileList {
@@ -43,17 +70,64 @@
 }
 
 .fileListItem {
-  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+	align-items: center;
+  margin-bottom: 2%;
+	border-bottom: 0.1vw solid #96aca8;
+	padding-bottom: 2%;
 }
 
 .filePreview {
-  width: 100px;
-  height: auto;
-  display: block;
-  margin-top: 5px;
+  width: 3vw;
+  height: 3vw;
+  object-fit: cover;
+  margin-right: 2%;
+	margin-left: 2%;
+	border: 0.1vw solid black;
 }
 
+.uploadButton {
+	margin-top: 2%;
+	margin-bottom: 2%;
+	align-self: center;
+}
 
+/*.removeButton,
+.removeAllButton,
+.submitButton {
+  background-color: #dc3545;
+  color: white;
+  padding: 1% 3%;
+  border: none;
+  border-radius: 0.4vw;
+  cursor: pointer;
+}*/
+
+.removeAllButton {
+  margin-top: 1%;
+}
+
+.fileListItemName {
+  word-break: break-all;
+	
+}
+
+/*.errorMessage {
+  color: red;
+}*/
+
+.fileInputAndSelectedFilesContainer {
+	display: flex;
+	/*flex-direction: column;*/
+}
+
+.selectedFilesContainer {
+	margin-left: 2%;
+	width: 46%;
+	height: 20.25vw;
+	overflow-y: scroll;
+}
 
 
 /*.fileInputContainer {
@@ -206,43 +280,3 @@
 	font-size: 1.2vw;
 }
 
-.fileCount {
-  margin-left: 10px;
-}
-
-.fileList {
-  list-style-type: none;
-  padding: 0;
-}
-
-.fileListItem {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.filePreview {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  margin-right: 10px;
-}
-
-.removeButton,
-.removeAllButton,
-.submitButton {
-  background-color: #dc3545;
-  color: white;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.removeAllButton {
-  margin-top: 10px;
-}
-
-.errorMessage {
-  color: red;
-}

@@ -107,8 +107,8 @@ export async function POST(request: Request) {
 
 			const allowedExtensionsField = fields.allowedExtensions as string | string[] | undefined;
       const allowedExtensions = Array.isArray(allowedExtensionsField)
-        ? allowedExtensionsField[0]?.split(',')
-        : (allowedExtensionsField?.split(',') || []); // Default to allowing any extension
+        ? allowedExtensionsField[0]?.split(',').map(ext => ext.trim())
+        : (allowedExtensionsField?.split(',').map(ext => ext.trim()) || []); // Default to allowing any extension
 				
 			  const maxFilesField = fields.maxFiles as string | string[] | undefined;
       const maxFiles = Array.isArray(maxFilesField)

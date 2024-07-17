@@ -109,6 +109,7 @@ const FileUploadForm: React.FC<FileUploadFormProps> = ({ allowedExtensions, maxF
       const data = await response.json();
 
       if (response.ok) {
+				setErrorMessage('');
         setSuccessMessage('Files uploaded successfully');
         previews.forEach(url => URL.revokeObjectURL(url));
         setFiles([]);
@@ -154,6 +155,7 @@ const FileUploadForm: React.FC<FileUploadFormProps> = ({ allowedExtensions, maxF
   return (
 		<Container header='Upload files' isButtonVisible ={false} centeredContent='no'>
     <form onSubmit={handleSubmit} className={styles.formContainer} encType="multipart/form-data">
+		<div className={styles.fileInputAndSelectedFilesContainer}>
 		<div
           className={`${styles.fileInputContainer} ${isDragging ? styles.dragging : ''}`}
           onDrop={handleDrop}
@@ -178,33 +180,38 @@ const FileUploadForm: React.FC<FileUploadFormProps> = ({ allowedExtensions, maxF
           <label htmlFor="fileInput" className={styles.fileInputLabel} onClick={clearMessage}>
             Select Files
           </label>
-					<p style={{ textAlign: 'center'}}>Поддерживаемые форматы файлов: {allowedExtensions}</p>
-          {files.length > 0 && (
-            <span className={styles.fileCount}>{files.length} file(s) selected</span>
-          )}
+					<p style={{ textAlign: 'center'}}>Поддерживаемые форматы файлов: <b>{allowedExtensions.replace(/\./g, '').toUpperCase()}</b></p>
+         
 
 
 
         </div>
 
-      {(errorMessage || successMessage) && <AlertMessage message={errorMessage || successMessage} success={successMessage} />}
+      
       {files.length > 0 && (
-        <div>
-					<button type="button" onClick={() => handleRemoveAllFile()} className={styles.removeAllButton}>Remove All</button>
-          <p>Selected files:</p>
+        <div className={styles.selectedFilesContainer}>
+					 {files.length > 0 && (
+						<div className={styles.fileCount}>
+            <div>{files.length} file(s) selected</div>
+						<Button label='Remove all' type="button" onClick={() => handleRemoveAllFile()} size="small"/>
+						</div>
+          )}
+					
+          <p className={styles.selectedFilesTitle}>Selected files:</p>
           <ul className={styles.fileList}>
             {files.map((file, index) => (
               <li key={index} className={styles.fileListItem}>
-                <p>{file.name}</p>
+                <p className={styles.fileListItemName}>{file.name}</p>
                 <img src={previews[index]} alt="File preview" className={styles.filePreview} />
-                <button type="button" onClick={() => handleRemoveFile(index)} className={styles.removeButton}>Remove</button>
+                <Button label='Remove' type="button" onClick={() => handleRemoveFile(index)} size="small"/>
               </li>
             ))}
           </ul>
         </div>
-      )}
-      
-			{files.length > 0 && <Button label='Upload' type='submit'/>}
+				
+      )}</div>
+      {(errorMessage || successMessage) && <AlertMessage message={errorMessage || successMessage} success={successMessage} />}
+			{files.length > 0 && <Button label='Upload' type='submit' className={styles.uploadButton} size='large'/>}
     </form>
 		</Container>
   );

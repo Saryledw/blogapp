@@ -9,7 +9,7 @@ export default function Wrapper() {
   return (
 		<div className={styles.wrapper}>
 			<Post/>
-			<FileUploadForm allowedExtensions=".png, .jpeg, .jpg" maxFiles={3} filesName="profile_picture"/>
+			<FileUploadForm allowedExtensions=".png, .jpeg, .jpg, .webp" maxFiles={10} filesName="profile_picture"/>
 			<Button label='СМЕНИТЬ'/>
 			<Container header='Вход'>
 			<AlertMessage message='ERRORRRRRRRRRRRRRR'/>
