@@ -47,6 +47,11 @@
   margin-top: 2%;
 }*/
 
+/*.expandButton {
+	font-size: 3vw;
+	font-weight: 900;
+}*/
+
 .fileCount {
   display: flex;
 	justify-content: space-between;
@@ -69,9 +74,16 @@
   padding: 0;
 }
 
+.fileListItemName {
+  word-break: break-all;
+	
+}
+
 .fileListItem {
-  display: flex;
-  justify-content: space-between;
+  /*display: flex;
+  justify-content: space-between;*/
+	display: grid;
+	grid-template-columns: 80% 13% 5%;
 	align-items: center;
   margin-bottom: 2%;
 	border-bottom: 0.1vw solid #96aca8;
@@ -112,10 +124,7 @@
   margin-top: 1%;
 }
 
-.fileListItemName {
-  word-break: break-all;
-	
-}
+
 
 /*.errorMessage {
   color: red;
@@ -128,7 +137,11 @@
 
 .selectedFilesContainer {
 	margin-left: 2%;
-	width: 46%;
+	padding-right: 0.5%;
+	/*width: 46%;*/
+	/*width: 100%;*/
+	/*flex-grow: 1;*/
+	width: 68%;
 	height: 20.25vw;
 	overflow-y: auto;
 }
@@ -178,6 +191,11 @@
  padding-bottom: 5%;
  padding-right: 1%;
  position: relative;
+ /*width: 20vw;
+ height: 20.25vw;*/
+ height: 20.25vw;
+ width: 30%;
+ margin-bottom: 0.2%;
 }
 
 @keyframes dash {

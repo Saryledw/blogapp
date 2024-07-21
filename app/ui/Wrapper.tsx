@@ -1,15 +1,21 @@
+'use client'
+
+import { useState, useRef } from 'react';
 import styles from './Wrapper.module.css';
 import Post from "./posts";
-import FileUploadForm from "./FileUploadForm";
+import FileUploadForm, { FileUploadFormHandle } from './FileUploadForm';
 import Button from "./Button";
 import Container from "./Container";
 import AlertMessage from "./AlertMessage";
 
 export default function Wrapper() {
+	const fileUploadRef2 = useRef<FileUploadFormHandle>(null);
+	const fileUploadRef3 = useRef<FileUploadFormHandle>(null);
   return (
 		<div className={styles.wrapper}>
 			<Post/>
-			<FileUploadForm allowedExtensions=".png, .jpeg, .jpg, .webp" maxFiles={10} filesName="profile_picture" uploadButton={false}/>
+			<FileUploadForm ref={fileUploadRef2} key="upload2" allowedExtensions=".png, .jpeg, .jpg, .webp" maxFiles={10} filesName="profile_picture1" uploadButton={false} hiddenContent={true}/>
+			<FileUploadForm ref={fileUploadRef3} key="upload3" allowedExtensions=".png, .jpeg, .jpg, .webp" maxFiles={10} filesName="profile_picture2" uploadButton={false} hiddenContent={true}/>
 			<Button label='СМЕНИТЬ'/>
 			<Container header='Вход'>
 			<AlertMessage message='ERRORRRRRRRRRRRRRR'/>
