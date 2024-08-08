@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation'
 import { useAuth } from '../lib/AuthContext';
 import { useState } from 'react';
 import styles from './Header.module.css';
+import Button from "./Button";
 
 export default function Header() {
   const router = useRouter();
@@ -24,9 +25,8 @@ export default function Header() {
     <div className={styles.header}>
       <div className={styles.headerContentContainer}>
         <p className={styles.titleText}>{titleText}</p>
-        <button className={styles.createPostButton} onClick={handleCreatePost}>
-          СОЗДАТЬ
-        </button>
+        
+				<Button label='СОЗДАТЬ' onClick={handleCreatePost} size='large' className={styles.createPostButton}/> 
       </div>
     </div>
   );

@@ -60,6 +60,25 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ noneVisibilityReg, 
     }
 
     try {
+
+
+				// First, validate the user details
+				const validation = await fetch('/api/validate-user-details', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({
+						userName,
+						email,
+					}),
+				});
+	
+				if (!validation.ok) {
+					const errorResponse = await validation.json(); // Parse the JSON error response
+					throw new Error(errorResponse.message || 'Validation failed');
+				}
+
+
+
       let profilePictureUrl = '';
 
       // Check if files are selected and upload them
@@ -118,7 +137,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ noneVisibilityReg, 
             }} className={styles.successRegistrationButton}>Войти</button></div>}
 
           {isVisibleForm && <form onSubmit={handleRegistration} className={styles.registrationForm}>
-            {errorMessage && <div className={styles.errorMessage}>{errorMessage}</div>}
+            {errorMessage && <AlertMessage message={errorMessage} className={styles.errorMessage}/>}
             <p className={styles.inputRegistrationTitle}>Имя пользователя:</p>
             <input
               className={styles.inputRegistration}
@@ -172,7 +191,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ noneVisibilityReg, 
               placeholder="Profile Picture URL (optional)"
             />
 
-            {/*<FileUploadForm
+            <FileUploadForm
 							key="upload1"
               ref={fileUploadRef}
               allowedExtensions=".png, .jpeg, .jpg, .webp"
@@ -181,7 +200,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ noneVisibilityReg, 
               uploadButton={false}
               hiddenContent={true}
               className={styles.fileUpload}
-            />*/}
+            />
 
             <Button label='СОЗДАТЬ' size='large' type='submit' loading={isLoading} className={styles.createButton} />
           </form>}

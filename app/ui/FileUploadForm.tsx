@@ -15,6 +15,7 @@ interface FileUploadFormProps {
   uploadButton: boolean;
   className?: string;
   hiddenContent?: boolean;
+	minimize?: boolean;
 }
 
 export interface FileUploadFormHandle {
@@ -24,7 +25,7 @@ export interface FileUploadFormHandle {
 }
 
 const FileUploadForm: React.ForwardRefRenderFunction<FileUploadFormHandle, FileUploadFormProps> = (
-  { allowedExtensions, maxFiles, filesName, uploadButton, className, hiddenContent = true },
+  { allowedExtensions, maxFiles, filesName, uploadButton, className, hiddenContent = true, minimize= false },
   ref
 ) => {
   const [files, setFiles] = useState<File[]>([]);
@@ -192,19 +193,22 @@ const FileUploadForm: React.ForwardRefRenderFunction<FileUploadFormHandle, FileU
   return (
     <Container header='Upload files' isButtonVisible={true} buttonLabel={buttonLabel} onHeaderClick={toggleContentVisibility} centeredContent={false} hiddenContent={isHidden} className={className} onButtonClick={toggleContentVisibility}>
       <form onSubmit={submitFiles} className={styles.formContainer} encType="multipart/form-data">
-        <div className={styles.fileInputAndSelectedFilesContainer}>
+        <div className={minimize? styles.fileInputAndSelectedFilesContainerMin : styles.fileInputAndSelectedFilesContainer}>
           <div
-            className={`${styles.fileInputContainer} ${isDragging ? styles.dragging : ''}`}
-            onDrop={handleDrop}
-            onDragOver={handleDragOver}
-            onDragLeave={handleDragLeave}
+            className={`${minimize? styles.fileInputContainerMin : styles.fileInputContainer} ${isDragging ? styles.dragging : ''}`}
+            onDrop={minimize ? undefined : handleDrop}
+						onDragOver={minimize ? undefined : handleDragOver}
+						onDragLeave={minimize ? undefined : handleDragLeave}
           >
+						{!minimize && (<div>
             <svg className={styles.svgBorder}>
               <rect x="0" y="0" width="100%" height="100%" />
             </svg>
             <FileUploadIcon style={{ color: '#ef6865', fontSize: '3vw' }} />
             <p className={styles.fileInputContainerText}>Перетащите файлы для загрузки</p>
             <p className={styles.fileInputContainerText}>или</p>
+						</div>
+						)}
             <input
               type="file"
               multiple
@@ -219,7 +223,7 @@ const FileUploadForm: React.ForwardRefRenderFunction<FileUploadFormHandle, FileU
           </div>
 
           {files.length > 0 && (
-            <div className={styles.selectedFilesContainer}>
+            <div className={minimize? styles.selectedFilesContainerMin : styles.selectedFilesContainer}>
               <div className={styles.fileCount}>
                 <div>{files.length} file(s) selected</div>
                 <Button label='Remove all' type="button" onClick={handleRemoveAllFile} size="small" />
@@ -227,7 +231,7 @@ const FileUploadForm: React.ForwardRefRenderFunction<FileUploadFormHandle, FileU
               <p className={styles.selectedFilesTitle}>Selected files:</p>
               <ul className={styles.fileList}>
                 {files.map((file, index) => (
-                  <li key={index} className={styles.fileListItem}>
+                  <li key={index} className={minimize? styles.fileListItemMin : styles.fileListItem}>
                     <p className={styles.fileListItemName}>{file.name}</p>
                     <img src={previews[index]} alt="File preview" className={styles.filePreview} />
                     <DeleteForeverIcon onClick={() => handleRemoveFile(index)} style={{ color: '#ef6865', fontSize: '2vw', cursor: 'pointer' }} />

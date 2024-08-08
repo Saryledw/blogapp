@@ -90,6 +90,17 @@
 	padding-bottom: 2%;
 }
 
+.fileListItemMin {
+  /*display: flex;
+  justify-content: space-between;*/
+	display: grid;
+	grid-template-columns: 60% 30% 10%;
+	align-items: center;
+  margin-bottom: 2%;
+	border-bottom: 0.1vw solid #96aca8;
+	padding-bottom: 2%;
+}
+
 .filePreview {
   width: 3vw;
   height: 3vw;
@@ -135,6 +146,11 @@
 	/*flex-direction: column;*/
 }
 
+.fileInputAndSelectedFilesContainerMin {
+	display: flex;
+	flex-direction: column;
+}
+
 .selectedFilesContainer {
 	margin-left: 2%;
 	padding-right: 0.5%;
@@ -143,6 +159,17 @@
 	/*flex-grow: 1;*/
 	width: 68%;
 	height: 20.25vw;
+	overflow-y: auto;
+}
+
+.selectedFilesContainerMin {
+	width: 100%;
+	border-top: #96aca8 0.17vw solid;
+	padding-top: 1vw;
+	padding-left: 0.5vw;
+	padding-right: 0.5vw;
+	padding-bottom: 0.5vw;
+	height: 11vw;
 	overflow-y: auto;
 }
 
@@ -196,6 +223,33 @@
  height: 20.25vw;
  width: 30%;
  margin-bottom: 0.2%;
+}
+
+.fileInputContainerMin {
+  display: flex;
+	flex-direction: column;
+	justify-content: center;
+ align-items: center;
+ /*border: #ef6865 dashed 0.17vw;*/
+ /*border: solid 0.17vw transparent;*/
+ /*width: 50%;
+ height: 10vw;*/
+ /*width: 565px;
+ height: 423px;*/
+ padding-top: 3%;
+ padding-left: 1%;
+ padding-bottom: 3%;
+ padding-right: 1%;
+ position: relative;
+ /*width: 20vw;
+ height: 20.25vw;*/
+ margin-bottom: 0.2%;
+ font-size: 0.8vw;
+}
+
+.fileInputContainerMin .fileInputLabel {
+ font-size: 1.1vw;
+ margin-bottom: 0.5vw;
 }
 
 @keyframes dash {

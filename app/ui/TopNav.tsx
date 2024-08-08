@@ -2,10 +2,16 @@
 
 import Link from 'next/link';
 import { usePathname} from 'next/navigation'
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/navigation'
 import styles from './TopNav.module.css';
 import Image from "next/image";
+import FileUploadForm, { FileUploadFormHandle } from './FileUploadForm';
+import Button from "./Button";
+import AlertMessage from "./AlertMessage";
+import Container from "./Container";
 import { useAuth } from '../lib/AuthContext';
+import { Label } from '@mui/icons-material';
 
 
 export function SearchBar ()  {
@@ -46,6 +52,8 @@ const TopNav: React.FC<TopNavProps> = ({ blockVisibilityLogin, noneVisibilityLog
 	const [isVisibleUserMenu, setIsVisibleUserMenu] = useState<boolean>(false);
 	const [isVisibleDeleteAccount, setIsVisibleDeleteAccount] = useState<boolean>(false);
 
+	const fileUploadRef = useRef<FileUploadFormHandle>(null);
+
 	const blockVisibilityUserMenu = () => { 
 		setIsVisibleUserMenu(true);
 		setUserName('');
@@ -63,7 +71,37 @@ const TopNav: React.FC<TopNavProps> = ({ blockVisibilityLogin, noneVisibilityLog
 
 	const { isAuthenticated, user, isLoading, logout, login, checkAuthAndRefresh } = useAuth();
 
+	useEffect(() => {
+    if (errorMessage) {
+      setSuccessMessage('');
+    } else if (successMessage) {
+      setErrorMessage('');
+    }
+  }, [errorMessage, successMessage]);
+
+	const router = useRouter();
+
+	const handleHomeRedirect = () => {
+    router.push('/');
+  };
+
 	const handleUpdateProfile = async () => {
+
+		let profilePictureUrl = '';
+
+      // Check if files are selected and upload them
+      if (fileUploadRef.current) {
+				if (fileUploadRef.current.files.length !== 0) 
+        {const fileUrls = await fileUploadRef.current.submitFiles();
+        if (fileUrls.length > 0) {
+          profilePictureUrl = fileUrls[0];
+        }}
+      }
+
+		if (!userName && !profilePictureUrl) {
+      setErrorMessage('Заполните хотя бы одно поле!');
+      return;
+    }
     // Validate username
     if (userName && !userNameRegex.test(userName)) {
       setErrorMessage('Username must be one or two words, each up to 10 letters long, separated by a single space.');
@@ -82,6 +120,10 @@ const TopNav: React.FC<TopNavProps> = ({ blockVisibilityLogin, noneVisibilityLog
     }
 
     try {
+
+			
+
+			
       const response = await fetch('/api/update-profile', {
         method: 'POST',
         headers: {
@@ -97,6 +139,7 @@ const TopNav: React.FC<TopNavProps> = ({ blockVisibilityLogin, noneVisibilityLog
       const data = await response.json();
 
       if (response.ok) {
+				setErrorMessage('');
         setSuccessMessage('Profile updated successfully');
 				login({
 					userName: data.userName,
@@ -145,20 +188,20 @@ const TopNav: React.FC<TopNavProps> = ({ blockVisibilityLogin, noneVisibilityLog
 
   return (
 <div className={styles.topNav}>
-	<p className={styles.headerText}>Blogsite</p>
+	<p onClick={handleHomeRedirect} className={styles.headerLogo}>Blogsite</p>
 		<SearchBar/>
 
 
-		{isLoading && <div className={styles.loadingSpinnerContainer}>
-			<div className={styles.loadingSpinner}></div>
-			</div>}
+		
 			
-		{!isAuthenticated && !isLoading &&
-	<button onClick={() => isVisibleLogin ? noneVisibilityLogin() : blockVisibilityLogin()} className={`${styles.loginButton} `}>Log in</button>
+		{!isAuthenticated &&
+	<Button label='Log in' size='large' loading={isLoading} className={styles.loginButton} onClick={() => isVisibleLogin ? noneVisibilityLogin() : blockVisibilityLogin()} />
 }
 
-{isAuthenticated && user && !isLoading && ( <div className={styles.loggedInUserProfile}>
-	<button onClick={() => isVisibleUserMenu? noneVisibilityUserMenu() : blockVisibilityUserMenu()}>
+{isAuthenticated && user && !isLoading && ( 
+	
+
+	<Button onClick={() => isVisibleUserMenu? noneVisibilityUserMenu() : blockVisibilityUserMenu()} className={styles.loggedInUserProfile}>
 	<div className={styles.loggedInUserProfilePicture}>
 	<Image
     src={user.profilePictureUrl || "/images/profile.png"}
@@ -166,21 +209,18 @@ const TopNav: React.FC<TopNavProps> = ({ blockVisibilityLogin, noneVisibilityLog
     objectFit="cover" // Adjust how the image fits in the container
     alt="User profile image"/>
 	</div>
-	</button>
-	<button onClick={() => isVisibleUserMenu? noneVisibilityUserMenu() : blockVisibilityUserMenu()} className={styles.loggedInUserProfileButton}>{user.userName}</button>
-	</div>
+	<p>{user.userName}</p>
+	</Button>
+
+	
+	
 )}
 
 {isAuthenticated && user && ( <div className={` ${styles.loggedInUserProfileMenu} ${isVisibleUserMenu ? styles.loggedInUserProfileMenuVisible : ''} `}>
-	<div className={styles.UserProfileMenuHeader}>
-	<p className={styles.userProfileMenuCreationDate}>Создан {new Date(user.createdAt).toLocaleDateString()}</p>
-			<button onClick={noneVisibilityUserMenu} className={styles.UserProfileMenuCloseButton}>X</button>
-		</div>
+	<Container className={styles.loggedInUserProfileMenuContainer} centeredContent={false} onButtonClick={noneVisibilityUserMenu} header={`Создан ${new Date(user.createdAt).toLocaleDateString()}`}>
+	
+	{(errorMessage || successMessage) && <AlertMessage message={errorMessage || successMessage} success={successMessage} />}
 
-	
-	
-	{errorMessage && <div className={styles.errorMessage}>{errorMessage}</div>}
-	{successMessage && <div className={styles.errorMessage}>{successMessage}</div>}
 	<p className={styles.сhangeInfoTitle}>Сменить информацию пользователя</p>
 	<p className={styles.inputChangeInfoTitle}>Имя пользователя:</p>
       <input
@@ -203,27 +243,41 @@ const TopNav: React.FC<TopNavProps> = ({ blockVisibilityLogin, noneVisibilityLog
       <p className={styles.inputChangeInfoTitle}>Фото профиля:</p>
       <input
         className={styles.inputChangeInfo}
-        type="url"
+        type="hidden"
         value={profilePictureUrl}
         onChange={(e) => setProfilePictureUrl(e.target.value)}
         placeholder="Profile Picture URL"
       />
-			<button onClick={handleUpdateProfile} className={styles.changeInfoButton}>СМЕНИТЬ</button>
-			
+			<FileUploadForm
+							key="upload1"
+              ref={fileUploadRef}
+              allowedExtensions=".png, .jpeg, .jpg, .webp"
+              maxFiles={1}
+              filesName="profilePictureChanged"
+              uploadButton={false}
+              hiddenContent={true}
+              className={styles.fileUpload}
+							minimize={true}
+            />
+			<div className={styles.changeInfoButton}>
+			<Button label='СМЕНИТЬ' onClick={handleUpdateProfile}/>
+			</div>
 
 	<div className={styles.logOutButtonContainer}>
-	<button onClick={() => {
-      noneVisibilityUserMenu();
-			logout();
-    }} className={styles.logOutButton}>ВЫЙТИ</button>
+		<Button label='ВЫЙТИ' onClick={() => {noneVisibilityUserMenu(); logout();}}/>
 		<div className={styles.deleteAccountTitle} onClick={() => isVisibleDeleteAccount? noneVisibilityDeleteAccount() : blockVisibilityDeleteAccount()}><p>УДАЛИТЬ АККАУНТ</p></div>
-		<div className={` ${styles.deleteAccountConfirmation} ${isVisibleDeleteAccount ? styles.deleteAccountConfirmationVisible : ''} `}><p>Вы уверены, что хотите удалить аккаунт?</p>
+		
+		{isVisibleDeleteAccount && (<div className={styles.deleteAccountConfirmation}><p>Вы уверены, что хотите удалить аккаунт?</p>
 		<div className={styles.deleteAccountConfirmationButtonsContainer}>
-		<button onClick={handleDeleteAccount} className={styles.deleteAccountConfirmationButton}>ДА</button>
-		<button onClick={noneVisibilityDeleteAccount} className={styles.deleteAccountConfirmationButton}>НЕТ</button>
+			<Button size='small' label='ДА' onClick={handleDeleteAccount}/>
+			<Button size='small' label='НЕТ' onClick={noneVisibilityDeleteAccount}/>
 		</div>
-		</div>
+		</div>)}
+
 	</div>
+
+	</Container>
+
 	</div>
 )}
 

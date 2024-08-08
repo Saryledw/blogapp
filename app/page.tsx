@@ -11,11 +11,9 @@ import { AuthProvider } from './lib/AuthContext';
 export default function Page() {
   return (
 		<div className={styles.pageWrapper}>
-		<AuthProvider>
-		<WrapperForLoginAndRegistration/>
+			
 		<Header/>
 		<Wrapper/>
-		</AuthProvider>
 		</div>
     
   );

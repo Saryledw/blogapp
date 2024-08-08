@@ -25,6 +25,18 @@ export async function POST(request: Request) {
 
 		const normalizedUserName = userName ? userName.toLowerCase() : undefined;
 
+		if (normalizedUserName) {
+      const existingUser = await prisma.user.findUnique({
+        where: { normalizedUserName },
+        select: { id: true },
+      });
+
+      // If the username is taken and belongs to a different user, return an error
+      if (existingUser && existingUser.id !== decoded.id) {
+        return NextResponse.json({ message: 'Имя пользователя уже занято' }, { status: 400 });
+      }
+    }
+
     const updatedUser = await prisma.user.update({
       where: { id: decoded.id },
       data: {

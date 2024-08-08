@@ -27,7 +27,7 @@
 	height: 3.95vw;
 }
 
-.headerText {
+.headerLogo {
 	/*display: inline-block;*/
 	/*float: left;*/
 	/*border: 0.1vw black solid;*/
@@ -40,6 +40,7 @@
 	font-size: 2.9vw;
 	font-weight: 600;
 	margin-bottom: 0.5%;
+	cursor: pointer;
 }
 
 .searchBar{
@@ -75,18 +76,25 @@
 .loginButton {
 	/*margin-left: 10%;*/
 /*	width: 3vw;*/
-	border: 0.1vw black solid;
+	/*border: 0.1vw black solid;
 	font-size: 1.7vw;
 	padding: 0.5% 1% 0.5% 1%;
 	background-color: #ef6865;
 	color: #ebd2ab;
-	box-shadow: 0.25vw 0.25vw 0vw 0.0vw rgba(0, 0, 0, 1);
+	box-shadow: 0.25vw 0.25vw 0vw 0.0vw rgba(0, 0, 0, 1);*/
 	align-self: center;
 	justify-self: end;
 	margin-right: 10%;
 	margin-bottom: 0.3%;
 	/*height: 2.7vw;*/
 	display: block;
+	width: 8.5vw;
+	height: 2.9vw;
+	font-size: 1.7vw;
+	font-weight: 600;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 
@@ -98,25 +106,45 @@
 	height: 3.8vw;
 }
 
-.loggedInUserProfile {
+.topNav .loggedInUserProfile {
 	justify-self: end;
 	align-self: center;
 	/*border: 0.1vw black solid;*/
 	display: flex;
+	justify-content: flex-start;
 	margin-right: 10%;
 	margin-bottom: 0.3%;
+	width: 11.4vw;
+	height: 2.9vw;
+	padding: 0;
+	border-left: 0;
+	font-size: 1.1vw;
+	font-weight: 500;
 }
+
+.loggedInUserProfile:active {
+	/*border: 0.1vw black solid;
+	border-left: 0;
+	box-shadow: inset -0.4vw -0.4vw 0vw 0.0vw  #a04745;
+	padding-top: 0;
+	padding-bottom: 0;
+	transform: translateY(-0.15vw);
+	transform: translateX(-0.15vw);*/
+	box-shadow: inset -0.4vw 0.4vw 0vw 0.0vw  #a04745;
+}
+
 
 .loggedInUserProfilePicture {
 	height: 2.9vw;
 	width: 2.9vw;
 	border: 0.1vw black solid;
-	box-shadow: 0.25vw 0.25vw 0vw 0.0vw rgba(0, 0, 0, 1);
+	/*box-shadow: 0.25vw 0.25vw 0vw 0.0vw rgba(0, 0, 0, 1);*/
 	position: relative;
-	z-index: -1;
+	z-index: 1;
+	margin-right: 0.5vw;
 }
 
-.loggedInUserProfileButton {
+/*.loggedInUserProfileButton {
 	border: 0.1vw black solid;
 	font-size: 1.1vw;
 	font-weight: 500;
@@ -126,45 +154,21 @@
 	box-shadow: 0.25vw 0.25vw 0vw 0.0vw rgba(0, 0, 0, 1);
 	width: 8.5vw;
 	height: 2.9vw;
-}
+}*/
 
-.loggedInUserProfileMenu {
-	position: fixed;
-	/*margin-left: 80%;*/
-	top: 3.85vw;
-	/*margin-top: 3.85vw;*/
-	right: 0;
-	width: 18vw;
-	/*height: 14.2vw;*/
-	background-color: white;
-	border: 0.17vw solid #96aca8;
-	z-index: 101;
-	/*transition: height 0.5s ease;*/
-	font-size: 1vw;
-	font-weight: 500;
-	/*padding-bottom: 1.2vw;*/
-	padding-bottom: 0.5%;
-	/*display: none;*/
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	transform: translateX(105%);
-  transition: transform 0.3s ease;
-}
 
-.loggedInUserProfileMenuVisible {
-	transform: translateX(0);
-}
 
 .logOutButtonContainer {
 	border-top: 0.17vw solid #96aca8;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	margin-top: 1.2vw;
 	flex-direction: column;
+	padding-top: 1.75vw;
 }
 
-.logOutButton {
+/*.logOutButton {
 	border: 0.1vw black solid;
 	background-color: #ef6865;
 	color: #ebd2ab;
@@ -176,14 +180,9 @@
 	align-self: center;
 	margin-top: 10%;
 	margin-bottom: 0%;
-	/*font-size: 1.2vw;*/
-	/*padding-top: 0.3vw;
-	padding-bottom: 0.3vw;*/
 	height: 2vw;
 	width: 6vw;
-	/*margin-top: 1.2vw;*/
-
-}
+}*/
 
 .loadingSpinnerContainer {
 	
@@ -226,9 +225,9 @@
 .inputChangeInfo
 {
 	
-	width: 90%;
-	margin-left: 1%;
-	margin-right: 1%;
+	width: 93%;
+	margin-left: 3%;
+	margin-right: 3%;
 	font-size: 1.5vw;
 	color: #ef6865;
 	box-shadow: 0.25vw 0.25vw 0vw 0.0vw rgba(0, 0, 0, 1);
@@ -260,6 +259,46 @@
 	margin-bottom: 2%;
 	color: black;
 	border-bottom: #ef6865 solid 0.17vw;
+}
+
+.changeInfoButton {
+	/*border: 0.1vw black solid;
+	background-color: #ef6865;
+	color: #ebd2ab;
+	box-shadow: 0.15vw 0.15vw 0vw 0.0vw rgba(0, 0, 0, 1);
+	padding-left: 0.3vw;
+	padding-right: 0.3vw;
+	font-weight: 900;
+	font-size: 1vw;
+	align-self: center;
+	margin-top: 0%;
+	margin-bottom: 0%;
+	height: 2vw;
+	width: 6vw;*/
+	display: flex;
+	width: 100%;
+	justify-content: center;
+}
+
+.loggedInUserProfileMenu {
+	position: fixed;
+	/*margin-left: 80%;*/
+	top: 3.85vw;
+	/*margin-top: 3.85vw;*/
+	right: 0;
+	width: 18vw;
+	/*height: 14.2vw;*/
+	z-index: 101;
+	transform: translateX(105%);
+  transition: transform 0.3s ease;
+}
+
+/*.loggedInUserProfileMenuContainer{
+
+}*/
+
+.loggedInUserProfileMenuVisible {
+	transform: translateX(0);
 }
 
 .userProfileMenuCreationDate {
@@ -298,24 +337,7 @@
 	font-size: 1vw;
 }
 
-.changeInfoButton {
-	border: 0.1vw black solid;
-	background-color: #ef6865;
-	color: #ebd2ab;
-	box-shadow: 0.15vw 0.15vw 0vw 0.0vw rgba(0, 0, 0, 1);
-	padding-left: 0.3vw;
-	padding-right: 0.3vw;
-	font-weight: 900;
-	font-size: 1vw;
-	align-self: center;
-	margin-top: 0%;
-	margin-bottom: 0%;
-	/*font-size: 1.2vw;*/
-	/*padding-top: 0.3vw;
-	padding-bottom: 0.3vw;*/
-	height: 2vw;
-	width: 6vw;
-}
+
 
 .errorMessage {
 	margin-bottom: 5%;
@@ -326,6 +348,7 @@
 .deleteAccountTitle {
 	align-self: center;
 	margin-top: 10%;
+	margin-bottom: 0.2vw;
 	font-size: 0.8vw;
 	cursor: pointer;
 }
@@ -338,16 +361,16 @@
 	margin-right: 3%;
 	margin-top: 3%;
 	padding-top: 3%;
-	display: none;
 }
 
-.deleteAccountConfirmationVisible {
-	display: block;
-}
+
 
 .deleteAccountConfirmationButtonsContainer {
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
+	padding-top: 0.7vw;
+	padding-bottom: 0.7vw;
+
 }
 
 .deleteAccountConfirmationButton {
@@ -370,4 +393,8 @@
 	align-self: center;
 	margin-left: 15%;
 	margin-right: 15%;
+}
+
+.fileUpload {
+	margin-bottom: 1.1vw;
 }

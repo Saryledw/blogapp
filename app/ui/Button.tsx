@@ -9,6 +9,7 @@ interface ButtonProps {
   disabled?: boolean;
   loading?: boolean;
   className?: string;
+	children?: ReactNode;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -19,6 +20,7 @@ const Button: React.FC<ButtonProps> = ({
   disabled = false,
   loading = false,
   className = '',
+	children,
 }) => {
   return (
     <button
@@ -27,8 +29,7 @@ const Button: React.FC<ButtonProps> = ({
       className={`${styles.button} ${styles[size]} ${className}`}
       disabled={disabled || loading}
     >
-      {loading ? <span className={styles.spinner}></span> : label}
-      
+      {loading ? <span className={styles.spinner}></span> : label || children}
     </button>
   );
 };

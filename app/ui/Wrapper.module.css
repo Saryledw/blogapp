@@ -32,6 +32,7 @@
   background-clip: content-box, border-box;
   background-size: 100% 100%, 100% 100%;
   transition: background-position 0.3s ease;
+	margin-bottom: 5%;
 }
 
 .dashedBorder:hover {

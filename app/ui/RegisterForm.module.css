@@ -93,13 +93,15 @@
 
 
 .errorMessage {
-	font-weight: 700;
+	/*font-weight: 700;
 	font-size: 1.6vw;
 	margin-left: 25%;
 	margin-right: 25%;
-	color: #ef6865;
-	position: absolute;
-	margin-top: -2%;
+	color: #ef6865;*/
+	position: fixed;
+	top: 3.1vw;
+	width: 58vw;
+	box-shadow: 0vw 0vw 0.5vw rgba(0, 0, 0, 0.2);
 }
 
 /*.registrationFormNone {

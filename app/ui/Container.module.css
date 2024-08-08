@@ -12,7 +12,7 @@
 	/*display: none;*/
 	/*transform: translateX(105%);
   transition: transform 0.3s ease;*/
-	font-size: 1vw;
+	font-size: 1.2vw;
 	font-weight: 500;
 	background-color: white;
 	border-top: 0.17vw solid #96aca8;
@@ -29,10 +29,11 @@
 	border-left: 0.17vw solid #96aca8;
 	border-right: 0.17vw solid #96aca8;
 	color: #ef6865;
-	font-size: 1.2vw;
+	/*font-size: 1.2vw;*/
 	font-weight: 600;
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	/*grid-template-columns: 1fr 1fr;*/
+	grid-template-columns: 80% 20%;
 	padding-left: 0.3vw;
 	padding-right: 0.35vw;
 	padding-top: 0.3vw;
